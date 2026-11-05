@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Hind:wght@400;500&display=swap");
+
+.sl {
+  --ink: #14213d;
+  --muted: #4a5a75;
+  --c: #1f9d6b;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 32px 20px;
+  background: #eef3f8;
+  color: var(--ink);
+  font-family: "Hind", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.sl *, .sl *::before, .sl *::after { box-sizing: border-box; }
+
+.sl-back { width: 100%; max-width: 440px; color: var(--ink); font-weight: 500; text-decoration: none; }
+.sl-back:hover { text-decoration: underline; }
+
+/* the "shop front" */
+.sl-shop {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border: 4px solid var(--ink);
+  border-radius: 8px 8px 24px 24px;
+  box-shadow: 8px 8px 0 var(--ink);
+  overflow: hidden;
+}
+
+/* striped awning */
+.sl-awning {
+  height: 56px;
+  background: repeating-linear-gradient(90deg, var(--c) 0 36px, #fff 36px 72px);
+  border-bottom: 4px solid var(--ink);
+}
+
+/* hanging shop board */
+.sl-sign {
+  background: var(--c);
+  color: #fff;
+  border-bottom: 4px solid var(--ink);
+  padding: 12px 28px;
+  text-align: center;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.sl-body { padding: 28px; }
+.sl-heading { margin: 0; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 2rem; line-height: 1.1; }
+.sl-tagline { margin: 6px 0 24px; color: var(--muted); }
+
+.sl-form { display: flex; flex-direction: column; gap: 18px; }
+.sl-field { display: flex; flex-direction: column; gap: 6px; }
+.sl-field > span { font-weight: 500; font-size: 0.9rem; }
+
+.sl-field input {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: box-shadow 0.15s ease;
+}
+.sl-field input::placeholder { color: #8896ad; }
+.sl-field input:focus { box-shadow: 4px 4px 0 var(--c); }
+
+.sl-pass { position: relative; }
+.sl-pass input { padding-right: 72px; }
+.sl-toggle {
+  position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
+  background: none; border: none; font: inherit; font-weight: 500; font-size: 0.9rem;
+  color: var(--muted); cursor: pointer; padding: 6px;
+}
+.sl-toggle:hover { color: var(--ink); }
+
+.sl-submit {
+  margin-top: 6px;
+  font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.2rem;
+  color: #fff; background: var(--c);
+  border: 3px solid var(--ink); border-radius: 12px; padding: 10px 16px;
+  cursor: pointer; box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.sl-submit:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.sl-submit:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+
+.sl-submit:focus-visible, .sl-toggle:focus-visible, .sl-back:focus-visible {
+  outline: 3px solid var(--ink); outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-submit, .sl-field input { transition: none; }
+}
+@media (max-width: 480px) {
+  .sl-body { padding: 22px; }
+  .sl-heading { font-size: 1.7rem; }
+  .sl-awning { height: 44px; }
+}
+
+/* ---------- error + signin/signup switch ---------- */
+.sl-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: #ffe3e7;
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.sl-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.sl-switch {
+  margin: 20px 0 0;
+  text-align: center;
+  color: var(--muted);
+}
+.sl-switch button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--c);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+.sl-switch button:hover { text-decoration-thickness: 5px; }
+.sl-switch button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }

@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Hind:wght@400;500&display=swap");
+
+.rl {
+  --ink: #14213d;
+  --muted: #4a5a75;
+  --c: #e8455e;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: "Hind", system-ui, sans-serif;
+  color: var(--ink);
+}
+.rl *, .rl *::before, .rl *::after { box-sizing: border-box; }
+
+/* ----- left colour panel ----- */
+.rl-side {
+  background: var(--c);
+  color: #fff;
+  border-right: 4px solid var(--ink);
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.rl-back { color: #fff; font-weight: 500; text-decoration: none; }
+.rl-back:hover { text-decoration: underline; }
+
+.rl-title {
+  margin: 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rl-points {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.15rem;
+}
+.rl-points li::before { content: "→ "; font-weight: 700; }
+.rl-pitch { padding-bottom: 24px; }
+
+/* ----- right form panel ----- */
+.rl-panel {
+  background: #eef3f8;
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rl-box { width: 100%; max-width: 380px; }
+
+.rl-heading { margin: 0; font-family: "Baloo 2", sans-serif; font-weight: 800; font-size: 2.2rem; line-height: 1.1; }
+.rl-tagline { margin: 6px 0 26px; color: var(--muted); }
+
+.rl-form { display: flex; flex-direction: column; gap: 18px; }
+.rl-field { display: flex; flex-direction: column; gap: 6px; }
+.rl-field > span { font-weight: 500; font-size: 0.9rem; }
+
+.rl-field input {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: box-shadow 0.15s ease;
+}
+.rl-field input::placeholder { color: #8896ad; }
+.rl-field input:focus { box-shadow: 4px 4px 0 var(--c); }
+
+.rl-pass { position: relative; }
+.rl-pass input { padding-right: 72px; }
+.rl-toggle {
+  position: absolute; top: 50%; right: 10px; transform: translateY(-50%);
+  background: none; border: none; font: inherit; font-weight: 500; font-size: 0.9rem;
+  color: var(--muted); cursor: pointer; padding: 6px;
+}
+.rl-toggle:hover { color: var(--ink); }
+
+.rl-submit {
+  margin-top: 6px;
+  font-family: "Baloo 2", sans-serif; font-weight: 700; font-size: 1.2rem;
+  color: #fff; background: var(--c);
+  border: 3px solid var(--ink); border-radius: 12px; padding: 10px 16px;
+  cursor: pointer; box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.rl-submit:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.rl-submit:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--ink); }
+
+.rl-submit:focus-visible, .rl-toggle:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.rl-back:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rl-submit, .rl-field input { transition: none; }
+}
+
+/* ----- mobile: panels stack ----- */
+@media (max-width: 760px) {
+  .rl { grid-template-columns: 1fr; }
+  .rl-side { border-right: none; border-bottom: 4px solid var(--ink); padding: 24px; gap: 28px; }
+  .rl-title { font-size: 3.5rem; }
+  .rl-points { font-size: 1rem; }
+  .rl-pitch { padding-bottom: 0; }
+}
+
+/* ---------- error + signin/signup switch ---------- */
+.rl-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: #ffe3e7;
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.rl-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 5px 5px 0 var(--ink);
+}
+
+.rl-switch {
+  margin: 20px 0 0;
+  text-align: center;
+  color: var(--muted);
+}
+.rl-switch button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--c);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+.rl-switch button:hover { text-decoration-thickness: 5px; }
+.rl-switch button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }

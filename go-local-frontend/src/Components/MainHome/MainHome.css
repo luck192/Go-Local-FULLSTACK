@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Hind:wght@400;500&display=swap");
+
+.mh {
+  --mh-bg: #eef3f8;
+  --mh-ink: #14213d;
+  --mh-muted: #4a5a75;
+  --mh-user: #f5b700;
+  --mh-rider: #e8455e;
+  --mh-shop: #1f9d6b;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 48px 20px;
+  background: var(--mh-bg);
+  color: var(--mh-ink);
+  font-family: "Hind", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  text-align: center;
+}
+
+.mh *,
+.mh *::before,
+.mh *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Heading ---------- */
+
+.mh-title {
+  margin: 0;
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.mh-sub {
+  margin: 12px 0 0;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  color: var(--mh-muted);
+}
+
+/* ---------- Circles ---------- */
+
+.mh-roles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.mh-circle {
+  --c: var(--mh-user);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 4px solid var(--mh-ink);
+  background: var(--c);
+  color: var(--mh-ink);
+  font: inherit;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 8px 8px 0 var(--mh-ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  animation: mh-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.mh-circle--user {
+  --c: var(--mh-user);
+}
+.mh-circle--rider {
+  --c: var(--mh-rider);
+  color: #fff;
+  animation-delay: 0.12s;
+}
+.mh-circle--shop {
+  --c: var(--mh-shop);
+  color: #fff;
+  animation-delay: 0.24s;
+}
+
+.mh-circle:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 var(--mh-ink);
+}
+
+.mh-circle:active {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0 var(--mh-ink);
+}
+
+.mh-circle:focus-visible {
+  outline: 4px solid var(--mh-ink);
+  outline-offset: 6px;
+}
+
+.mh-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 4px;
+}
+
+.mh-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mh-label {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.mh-hint {
+  font-size: 0.85rem;
+  line-height: 1.25;
+  max-width: 140px;
+  opacity: 0.9;
+}
+
+/* ---------- Motion (sirf page load pe ek baar) ---------- */
+
+@keyframes mh-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mh-circle {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 560px) {
+  .mh {
+    gap: 40px;
+    padding: 32px 16px;
+  }
+
+  .mh-roles {
+    gap: 24px;
+  }
+
+  .mh-circle {
+    width: 190px;
+    height: 190px;
+  }
+
+  .mh-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mh-label {
+    font-size: 1.4rem;
+  }
+}
