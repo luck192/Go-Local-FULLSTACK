@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ShopLogin.css";
 
-const API_BASE = "http://localhost:3000/shop1"; // apne backend ka URL yahan badal lena
+const API_BASE = "https://go-local-fullstack.onrender.com/shop1"; // apne backend ka URL yahan badal lena
 const ROLE = "shop";
 
 function ShopLogin() {
