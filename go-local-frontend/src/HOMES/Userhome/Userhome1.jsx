@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UserHome.css";
 
-const API = "http://localhost:3000/api/tasks"; // backend ka URL
+const API = "https://go-local-fullstack.onrender.com/api/tasks"; // backend ka URL
 const POLL_MS = 5000; // har 5 second me orders refresh
 
 const TABS = [
